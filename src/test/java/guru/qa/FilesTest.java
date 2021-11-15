@@ -9,6 +9,7 @@ import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -31,6 +32,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@DisplayName("Тесты на файлы")
 public class FilesTest {
 
     @Test
@@ -52,6 +54,7 @@ public class FilesTest {
         $("#uploaded-files").shouldHave(text("example.txt"));
     }
 
+    @Disabled
     @Test
     @DisplayName("Скачивание текстового файла и проверка его содержимого")
     void downloadSimpleTextFileTest() throws IOException {
@@ -61,6 +64,7 @@ public class FilesTest {
         assertTrue(fileContent.contains("This repository is the home of the next generation of JUnit, _JUnit 5_."));
     }
 
+    @Disabled
     @Test
     @DisplayName("Скачивание PDF файла")
     void pdfFileDownloadTest() throws IOException {
@@ -70,6 +74,7 @@ public class FilesTest {
         Assertions.assertEquals(164, parsedPdf.numberOfPages);
     }
 
+    @Disabled
     @Test
     @DisplayName("Скачивание XLS файла")
     void xlsFileDownloadTest() throws IOException {
@@ -89,6 +94,7 @@ public class FilesTest {
         assertTrue(checkPassed);
     }
 
+    @Disabled
     @Test
     @DisplayName("Парсинг CSV файлов")
     void parseCsvFileTest() throws IOException, CsvException {
@@ -102,6 +108,7 @@ public class FilesTest {
         }
     }
 
+    @Disabled
     @Test
     @DisplayName("Парсинг ZIP файлов")
     void parseZipFileTest() throws IOException, CsvException {
